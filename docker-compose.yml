@@ -1,7 +1,7 @@
 version: '3'
 services:
   pgbackupminio:
-    image: 
+    image: insignficant/backup-postgresql-to-minio
     env_file:
       - .env
     network_mode: host
