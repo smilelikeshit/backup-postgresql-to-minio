@@ -65,7 +65,7 @@ pg_dump $POSTGRES_HOST_OPTS $POSTGRES_DATABASE | gzip > $HOME/tmp_dump.sql.gz
 echo "Uploading dump to $MINIO_BUCKET"
 
 mc cp $HOME/tmp_dump.sql.gz minio/$MINIO_BUCKET/${POSTGRES_DATABASE}_$(date +"%Y-%m-%dT%H:%M:%SZ").sql.gz || exit 2
-rm tmp_dump.sql.gz 
+rm $HOME/tmp_dump.sql.gz 
 sync
 
 echo "SQL backup uploaded successfully" 1>&2
